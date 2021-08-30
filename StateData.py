@@ -75,6 +75,7 @@ def plot_state_case_rate(df, title='Maryland State Case Rate', size=1):
     plt.xticks(rotation=90)
     plt.title(f' {title} ')
     ax.grid(color='black', linestyle='dotted', linewidth=0.75)
+    plt.savefig(f'{title}.png')
     plt.show()
 
 
