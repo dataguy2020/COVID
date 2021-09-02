@@ -2,7 +2,11 @@
 
 cd /home/michael/script
 today=`date +%m%d%Y`
-mkdir data/$today
+dir="data/$today"
+if [[ ! -e $dir ]]; then
+    mkdir $dir
+fi
+
 python3 StateData.py
 python3 USA.py
 mv *.png data/$today
