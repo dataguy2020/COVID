@@ -9,6 +9,9 @@ fi
 
 python3 StateData.py
 python3 USA.py
+python3 county.py
+python3 vaccines.py
+python3 covidbyage.py
 mv *.png data/$today
 mv *.csv data/$today
 git add *
