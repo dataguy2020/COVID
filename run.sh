@@ -13,4 +13,4 @@ mv *.png data/$today
 mv *.csv data/$today
 git add *
 git commit -m "`date +%m%d%Y` updates"
-
+git push COVID master
