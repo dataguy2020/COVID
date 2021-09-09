@@ -53,9 +53,9 @@ cvd_vaccine_60days = cvd_vacine_aggregate.iloc[-60:]
 cvd_vaccine_30days = cvd_vacine_aggregate.iloc[-30:]
 cvd_vaccine_7days = cvd_vacine_aggregate.iloc[-7:]
 
-plot_state_vaccines(cvd_vacine_aggregate, 'State Aggregate 7-Day Running Average', size=4)
-plot_state_vaccines(cvd_vaccine_60days, 'State 7-Day Average Past 60 Days', size=4)
-plot_state_vaccines(cvd_vaccine_30days, 'State 7-Day Average Past 30 Days', size=4)
-plot_state_vaccines(cvd_vaccine_7days, 'State 7-Day Average Past 7 Days', size=4)
+plot_state_vaccines(cvd_vacine_aggregate, 'State Vaccine Aggregate 7-Day Running Average', size=4)
+plot_state_vaccines(cvd_vaccine_60days, 'State Vaccine 7-Day Average Past 60 Days', size=4)
+plot_state_vaccines(cvd_vaccine_30days, 'State Vaccine 7-Day Average Past 30 Days', size=4)
+plot_state_vaccines(cvd_vaccine_7days, 'State Vaccine 7-Day Average Past 7 Days', size=4)
 
     
