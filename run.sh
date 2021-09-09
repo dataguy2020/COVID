@@ -7,6 +7,7 @@ if [[ ! -e $dir ]]; then
     mkdir $dir
 fi
 
+git pull
 python3 StateData.py
 python3 USA.py
 python3 county.py
