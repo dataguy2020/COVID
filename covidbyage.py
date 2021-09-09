@@ -125,10 +125,10 @@ casesByAge_aggregate_60days = casesByAge_aggregate.iloc[-60:]
 casesByAge_aggregate_30days = casesByAge_aggregate.iloc[-30:]
 casesByAge_aggregate_7days = casesByAge_aggregate.iloc[-7:]
 
-plot_cases_by_age(casesByAge_aggregate, 'State Aggregate 7-Day Running Average', size=4)
-plot_cases_by_age(casesByAge_aggregate_60days, 'State 7-Day Average Past 60 Days', size=4)
-plot_cases_by_age(casesByAge_aggregate_30days, 'State 7-Day Average Past 30 Days', size=4)
-plot_cases_by_age(casesByAge_aggregate_7days, 'State 7-Day Average Past 7 Days', size=4)
+plot_cases_by_age(casesByAge_aggregate, 'State Cases By Age Aggregate 7-Day Running Average', size=4)
+plot_cases_by_age(casesByAge_aggregate_60days, 'State Cases By Age 7-Day Average Past 60 Days', size=4)
+plot_cases_by_age(casesByAge_aggregate_30days, 'State Cases By Age 7-Day Average Past 30 Days', size=4)
+plot_cases_by_age(casesByAge_aggregate_7days, 'State Cases By Age 7-Day Average Past 7 Days', size=4)
 
 #Cases per Age per capita
 def plot_casesbyage_percapita(df, title='Maryland State Cases by Age per Capita', size=1):
@@ -159,7 +159,7 @@ cvd60d = casesbyage_rate_aggregate.iloc[-60:]
 cvd30d = casesbyage_rate_aggregate.iloc[-30:]
 cvd7d = casesbyage_rate_aggregate.iloc[-7:]
 
-plot_casesbyage_percapita(casesbyage_rate_aggregate, 'Cases per Age Case Rate', size=4)
-plot_casesbyage_percapita(cvd60d, 'Cases per Age Past  60 Days State Case Rate', size=4)
-plot_casesbyage_percapita(cvd30d, 'Cases per Age Past 30 Days  State Case Rate', size=4)
-plot_casesbyage_percapita(cvd7d, 'Cases per Age Past 7 Days State Case Rate', size=4)
+plot_casesbyage_percapita(casesbyage_rate_aggregate, 'Cases Rate per Age Case Rate', size=4)
+plot_casesbyage_percapita(cvd60d, 'Cases Rate per Age Past  60 Days State Case Rate', size=4)
+plot_casesbyage_percapita(cvd30d, 'Cases Rate per Age Past 30 Days  State Case Rate', size=4)
+plot_casesbyage_percapita(cvd7d, 'Cases Rate per Age Past 7 Days State Case Rate', size=4)
