@@ -51,11 +51,13 @@ def plot_state_vaccines(df, title='7-Day Vaccine Count', size=1):
 cvd_vacine_aggregate = CVD.groupby(['ReportDate']).sum().reset_index()
 cvd_vaccine_60days = cvd_vacine_aggregate.iloc[-60:]
 cvd_vaccine_30days = cvd_vacine_aggregate.iloc[-30:]
+cvd_vaccine_45days = cvd_vacine_aggregate.iloc[-45:]
 cvd_vaccine_7days = cvd_vacine_aggregate.iloc[-7:]
 
-plot_state_vaccines(cvd_vacine_aggregate, 'State Vaccine Aggregate 7-Day Running Average', size=4)
-plot_state_vaccines(cvd_vaccine_60days, 'State Vaccine 7-Day Average Past 60 Days', size=4)
-plot_state_vaccines(cvd_vaccine_30days, 'State Vaccine 7-Day Average Past 30 Days', size=4)
-plot_state_vaccines(cvd_vaccine_7days, 'State Vaccine 7-Day Average Past 7 Days', size=4)
+plot_state_vaccines(cvd_vacine_aggregate, 'VACCINE - Maryland Aggregate 7-Day Running Average', size=4)
+plot_state_vaccines(cvd_vaccine_60days, 'VACCINE - Maryland 7-Day Average Past 60 Days', size=4)
+plot_state_vaccines(cvd_vaccine_30days, 'VACCINE - Maryland 7-Day Average Past 30 Days', size=4)
+plot_state_vaccines(cvd_vaccine_45days, 'VACCINE - Maryland 7-Day Average Past 45 Days', size=4)
+plot_state_vaccines(cvd_vaccine_7days, 'VACCINE - Maryland 7-Day Average Past 7 Days', size=4)
 
     
