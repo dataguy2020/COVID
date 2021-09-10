@@ -113,14 +113,16 @@ def plot_state_7davg (df, title='7-Day Case Count', size = 1):
 
 cvd_case_rate_aggregate = CVD.groupby(['ndate']).sum().reset_index()
 sevenDayAverage60day = cvd_case_rate_aggregate.iloc[-60:]
+sevenDayAverage45day = cvd_case_rate_aggregate.iloc[-45:]
 sevenDayAverage30day = cvd_case_rate_aggregate.iloc[-30:]
 sevenDayAverage7day = cvd_case_rate_aggregate.iloc[-7:]
 
 
-plot_state_7davg(cvd_case_rate_aggregate, 'Aggregate 7-Day Running Average', size=4)
-plot_state_7davg(sevenDayAverage60day, 'Past 60 Days 7-Day Running Average', size=4)
-plot_state_7davg(sevenDayAverage30day, 'Past 30 Days 7-Day Running Average', size=4)
-plot_state_7davg(sevenDayAverage7day, 'Past 7 Days 7-Day Running Average', size=4)
+plot_state_7davg(cvd_case_rate_aggregate, 'Case Count for Counties Aggregate 7-Day Running Average', size=4)
+plot_state_7davg(sevenDayAverage60day, 'Case Count for Counties previous 60 Days 7-Day Running Average', size=4)
+plot_state_7davg(sevenDayAverage45day, 'Case Count for Counties previous 45 Days 7-Day Running Average', size=4)
+plot_state_7davg(sevenDayAverage30day, 'Case Count for Counties previous 30 Days 7-Day Running Average', size=4)
+plot_state_7davg(sevenDayAverage7day, 'Case Count for Counties previous 7 Days 7-Day Running Average', size=4)
 
 
 #=================================================================================
@@ -146,11 +148,13 @@ def plot_state_case_rate(df, title='County Case Rate', size=1):
 cvd_case_rate_aggregate = CVD.groupby(['ndate']).sum().reset_index()
 cvd60d = cvd_case_rate_aggregate.iloc[-60:]
 cvd30d = cvd_case_rate_aggregate.iloc[-30:]
+cvd45d = cvd_case_rate_aggregate.iloc[-45:]
 cvd7d = cvd_case_rate_aggregate.iloc[-7:]
 
-plot_state_case_rate(cvd_case_rate_aggregate, 'Aggregate County Case Rate', size=4)
+plot_state_case_rate(cvd_case_rate_aggregate, 'Aggregate Counties Case Rate', size=4)
 
-plot_state_case_rate(cvd60d, 'County Case Rate Past 60 Days', size=4)
-plot_state_case_rate(cvd30d, 'County Case Rate Past 30 Days', size=4)
-plot_state_case_rate(cvd7d, 'County Case Rate Past 7 Days', size=4)
+plot_state_case_rate(cvd60d, 'Counties Case Rate Previous 60 Days', size=4)
+plot_state_case_rate(cvd45d, 'Counties Case Rate Previous 30 Days', size=4)
+plot_state_case_rate(cvd30d, 'Counties Case Rate Previous 30 Days', size=4)
+plot_state_case_rate(cvd7d, 'Counties Case Rate Previous 7 Days', size=4)
 
