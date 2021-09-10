@@ -122,13 +122,15 @@ def plot_cases_by_age(df, title='7-Day COVID Cases by Age', size=1):
     
 casesByAge_aggregate = CVD.groupby(['DATE']).sum().reset_index()
 casesByAge_aggregate_60days = casesByAge_aggregate.iloc[-60:]
+casesByAge_aggregate_45days = casesByAge_aggregate.iloc[-45:]
 casesByAge_aggregate_30days = casesByAge_aggregate.iloc[-30:]
 casesByAge_aggregate_7days = casesByAge_aggregate.iloc[-7:]
 
-plot_cases_by_age(casesByAge_aggregate, 'State Cases By Age Aggregate 7-Day Running Average', size=4)
-plot_cases_by_age(casesByAge_aggregate_60days, 'State Cases By Age 7-Day Average Past 60 Days', size=4)
-plot_cases_by_age(casesByAge_aggregate_30days, 'State Cases By Age 7-Day Average Past 30 Days', size=4)
-plot_cases_by_age(casesByAge_aggregate_7days, 'State Cases By Age 7-Day Average Past 7 Days', size=4)
+plot_cases_by_age(casesByAge_aggregate,'CASES_BY_AGE-Maryland-Aggregate_7-Day_Running_Average',_size=4)
+plot_cases_by_age(casesByAge_aggregate_60days,'CASES_BY_AGE-Maryland-7-Day_Average_Previous_60_Days',_size=4)
+plot_cases_by_age(casesByAge_aggregate_45days,'CASES_BY_AGE-Maryland-7-Day_Average_Previous_45_Days',_size=4)
+plot_cases_by_age(casesByAge_aggregate_30days,'CASES_BY_AGE-Maryland-7-Day_Average_Previous_30_Days',_size=4)
+plot_cases_by_age(casesByAge_aggregate_7days,'CASES_BY_AGE-Maryland-7-Day_Average_Previous_7_Days',_size=4)
 
 #Cases per Age per capita
 def plot_casesbyage_percapita(df, title='Maryland State Cases by Age per Capita', size=1):
@@ -156,10 +158,12 @@ def plot_casesbyage_percapita(df, title='Maryland State Cases by Age per Capita'
 
 casesbyage_rate_aggregate = CVD.groupby(['DATE']).sum().reset_index()
 cvd60d = casesbyage_rate_aggregate.iloc[-60:]
+cvd45d = casesbyage_rate_aggregate.iloc[-60:]
 cvd30d = casesbyage_rate_aggregate.iloc[-30:]
 cvd7d = casesbyage_rate_aggregate.iloc[-7:]
 
-plot_casesbyage_percapita(casesbyage_rate_aggregate, 'Cases Rate per Age Case Rate', size=4)
-plot_casesbyage_percapita(cvd60d, 'Cases Rate per Age Past  60 Days State Case Rate', size=4)
-plot_casesbyage_percapita(cvd30d, 'Cases Rate per Age Past 30 Days  State Case Rate', size=4)
-plot_casesbyage_percapita(cvd7d, 'Cases Rate per Age Past 7 Days State Case Rate', size=4)
+plot_casesbyage_percapita(casesbyage_rate_aggregate,'CASES_BY_AGE_CASERATE-Maryland_Aggregate_Case_Rate',_size=4)
+plot_casesbyage_percapita(cvd60d,'CCASES_BY_AGE_CASERATE-Maryland-Previous_60_Days_State_Case_Rate',_size=4)
+plot_casesbyage_percapita(cvd45d,'CCASES_BY_AGE_CASERATE-Maryland-Previous_45_Days_State_Case_Rate',_size=4)
+plot_casesbyage_percapita(cvd30d,'CASES_BY_AGE_CASERATE-Maryland-Previous_30_Days__State_Case_Rate',_size=4)
+plot_casesbyage_percapita(cvd7d,'CASES_BY_AGE_CASERATE-Maryland-Previous_7_Days_State_Case_Rate',_size=4)
