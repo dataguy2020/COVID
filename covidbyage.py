@@ -96,7 +96,7 @@ print(CVD.tail())
 CVD.to_csv(r'COVIDbyAge.csv')
 
 
-def plot_cases_by_age(df, title='7-Day COVID Cases by Age', size=1):
+def plot_cases_by_age(df, title='7-Day COVID Cases by Age', size=4):
     f, ax = plt.subplots(1, 1, figsize=(4 * size, 2 * size))
     g = sns.lineplot(x="DATE", y="tenderAge", data=df, color='blue', label="0-10")
     g = sns.lineplot(x="DATE", y="teenagers", data=df, color='orange', label="10-19")
@@ -126,11 +126,11 @@ casesByAge_aggregate_45days = casesByAge_aggregate.iloc[-45:]
 casesByAge_aggregate_30days = casesByAge_aggregate.iloc[-30:]
 casesByAge_aggregate_7days = casesByAge_aggregate.iloc[-7:]
 
-plot_cases_by_age(casesByAge_aggregate,'CASES_BY_AGE-Maryland-Aggregate_7-Day_Running_Average',_size=4)
-plot_cases_by_age(casesByAge_aggregate_60days,'CASES_BY_AGE-Maryland-7-Day_Average_Previous_60_Days',_size=4)
-plot_cases_by_age(casesByAge_aggregate_45days,'CASES_BY_AGE-Maryland-7-Day_Average_Previous_45_Days',_size=4)
-plot_cases_by_age(casesByAge_aggregate_30days,'CASES_BY_AGE-Maryland-7-Day_Average_Previous_30_Days',_size=4)
-plot_cases_by_age(casesByAge_aggregate_7days,'CASES_BY_AGE-Maryland-7-Day_Average_Previous_7_Days',_size=4)
+plot_cases_by_age(casesByAge_aggregate,'CASES_BY_AGE-Maryland-Aggregate_7-Day_Running_Average')
+plot_cases_by_age(casesByAge_aggregate_60days,'CASES_BY_AGE-Maryland-7-Day_Average_Previous_60_Days')
+plot_cases_by_age(casesByAge_aggregate_45days,'CASES_BY_AGE-Maryland-7-Day_Average_Previous_45_Days')
+plot_cases_by_age(casesByAge_aggregate_30days,'CASES_BY_AGE-Maryland-7-Day_Average_Previous_30_Days')
+plot_cases_by_age(casesByAge_aggregate_7days,'CASES_BY_AGE-Maryland-7-Day_Average_Previous_7_Days')
 
 #Cases per Age per capita
 def plot_casesbyage_percapita(df, title='Maryland State Cases by Age per Capita', size=1):
