@@ -36,8 +36,6 @@ def plot_state_vaccines(df, title='7-Day Vaccine Count', size=1):
     g = sns.lineplot(x="ReportDate", y="FirstDose_7Day", data=df, color='blue', label="First Dose")
     g = sns.lineplot(x="ReportDate", y="SecondDose_7Day", data=df, color='red', label="Second Dose")
     g = sns.lineplot(x="ReportDate", y="SingleDose_7Day", data=df, color='green', label="Single Dose")
-    #g = sns.lineplot(x="ReportDate", y="TotalDoses_7Day", data=df, color='orange', label="Total Dose")
-
 
     plt.xlabel('ReportDate')
     plt.ylabel(' 7-Day Average ')
