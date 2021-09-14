@@ -133,7 +133,7 @@ plot_cases_by_age(casesByAge_aggregate_30days,'CASES_BY_AGE-Maryland-7-Day_Avera
 plot_cases_by_age(casesByAge_aggregate_7days,'CASES_BY_AGE-Maryland-7-Day_Average_Previous_7_Days')
 
 #Cases per Age per capita
-def plot_casesbyage_percapita(df, title='Maryland State Cases by Age per Capita', size=1):
+def plot_casesbyage_percapita(df, title='Maryland State Cases by Age per Capita', size=4):
     f, ax = plt.subplots(1, 1, figsize=(4 * size, 2 * size))
     g = sns.lineplot(x="DATE", y="0_97D100k", data=df, color='blue', label="0-10")
     g = sns.lineplot(x="DATE", y="10_197D100k", data=df, color='orange', label="10-19")
@@ -162,8 +162,8 @@ cvd45d = casesbyage_rate_aggregate.iloc[-60:]
 cvd30d = casesbyage_rate_aggregate.iloc[-30:]
 cvd7d = casesbyage_rate_aggregate.iloc[-7:]
 
-plot_casesbyage_percapita(casesbyage_rate_aggregate,'CASES_BY_AGE_CASERATE-Maryland_Aggregate_Case_Rate',_size=4)
-plot_casesbyage_percapita(cvd60d,'CCASES_BY_AGE_CASERATE-Maryland-Previous_60_Days_State_Case_Rate',_size=4)
-plot_casesbyage_percapita(cvd45d,'CCASES_BY_AGE_CASERATE-Maryland-Previous_45_Days_State_Case_Rate',_size=4)
-plot_casesbyage_percapita(cvd30d,'CASES_BY_AGE_CASERATE-Maryland-Previous_30_Days__State_Case_Rate',_size=4)
-plot_casesbyage_percapita(cvd7d,'CASES_BY_AGE_CASERATE-Maryland-Previous_7_Days_State_Case_Rate',_size=4)
+plot_casesbyage_percapita(casesbyage_rate_aggregate,'CASES_BY_AGE_CASERATE-Maryland_Aggregate_Case_Rate')
+plot_casesbyage_percapita(cvd60d,'CCASES_BY_AGE_CASERATE-Maryland-Previous_60_Days_State_Case_Rate')
+plot_casesbyage_percapita(cvd45d,'CCASES_BY_AGE_CASERATE-Maryland-Previous_45_Days_State_Case_Rate')
+plot_casesbyage_percapita(cvd30d,'CASES_BY_AGE_CASERATE-Maryland-Previous_30_Days__State_Case_Rate')
+plot_casesbyage_percapita(cvd7d,'CASES_BY_AGE_CASERATE-Maryland-Previous_7_Days_State_Case_Rate')
