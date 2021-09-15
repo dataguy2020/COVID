@@ -4,11 +4,11 @@ import datetime
 __author__ = "Michael Brown"
 __license__ = "Based off of sript by Sreenivas Bhattiprolu of Python for Microscopists"
  
-import pandas as pd
 import datetime as dt
+import os
+import pandas as pd
 from matplotlib import pyplot as plt
 import seaborn as sns
-import os
 
 
 USAPopulation=328239523
