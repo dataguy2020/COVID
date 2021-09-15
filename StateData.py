@@ -41,7 +41,7 @@ print (CVD.dtypes)
 #=================================================================================
 # 7-Day Running Average
 #=================================================================================
-def plot_state_7DAvg(df, title='7-Day Case Count', size=1):
+def plot_state_7davg(df, title='7-Day Case Count', size=1):
     f, ax = plt.subplots(1, 1, figsize=(4 * size, 2 * size))
     g = sns.lineplot(x="Date", y="7Day", data=df, color='blue', label="7-Day Case Count")
     plt.xlabel('Date')
@@ -58,10 +58,10 @@ cvd_case_rate_aggregate = CVD.groupby(['Date']).sum().reset_index()
 sevenDayAverage60day = cvd_case_rate_aggregate.iloc[-60:]
 sevenDayAverage30day = cvd_case_rate_aggregate.iloc[-30:]
 sevenDayAverage7day = cvd_case_rate_aggregate.iloc[-7:]
-plot_state_7DAvg(cvd_case_rate_aggregate, 'State Aggregate 7-Day Running Average', size=4)
-plot_state_7DAvg(sevenDayAverage60day, 'State Past 60 Days 7-Day Running Average', size=4)
-plot_state_7DAvg(sevenDayAverage30day, 'State Past 30 Days 7-Day Running Average', size=4)
-plot_state_7DAvg(sevenDayAverage7day, 'State Past 7 Days 7-Day Running Average', size=4)
+plot_state_7davg(cvd_case_rate_aggregate, 'State Aggregate 7-Day Running Average', size=4)
+plot_state_7davg(sevenDayAverage60day, 'State Past 60 Days 7-Day Running Average', size=4)
+plot_state_7davg(sevenDayAverage30day, 'State Past 30 Days 7-Day Running Average', size=4)
+plot_state_7davg(sevenDayAverage7day, 'State Past 7 Days 7-Day Running Average', size=4)
 
 
 #=================================================================================
