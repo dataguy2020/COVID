@@ -45,7 +45,7 @@ USACOVID.to_csv('USA_Data.csv')
 #=================================================================================
 # 7-Day Running Average
 #=================================================================================
-def plot_USA_7davg (df, title='7-Day Case Count', size = 1):
+def plot_usa_7davg (df, title='7-Day Case Count', size = 1):
     f, ax = plt.subplots(1,1, figsize=(4*size,2*size))
     g = sns.lineplot(x="date", y="Cases7D", data=df, color='blue', label="United States")
     plt.xlabel('Date')
@@ -61,15 +61,15 @@ USAsevenDayAverage60day = USACOVID_case_rate_aggregate.iloc[-60:]
 USAsevenDayAverage30day = USACOVID_case_rate_aggregate.iloc[-30:]
 USAsevenDayAverage7day = USACOVID_case_rate_aggregate.iloc[-7:]
 
-plot_USA_7davg(USACOVID_case_rate_aggregate, 'USA Aggregate 7-Day Running Average', size=4)
-plot_USA_7davg(USAsevenDayAverage60day, 'USA Past 60 Days 7-Day Running Average', size=4)
-plot_USA_7davg(USAsevenDayAverage30day, 'USA Past 30 Days 7-Day Running Average', size=4)
-plot_USA_7davg(USAsevenDayAverage7day, 'USA Past 7 Days 7-Day Running Average', size=4)
+plot_usa_7davg(USACOVID_case_rate_aggregate, 'USA Aggregate 7-Day Running Average', size=4)
+plot_usa_7davg(USAsevenDayAverage60day, 'USA Past 60 Days 7-Day Running Average', size=4)
+plot_usa_7davg(USAsevenDayAverage30day, 'USA Past 30 Days 7-Day Running Average', size=4)
+plot_usa_7davg(USAsevenDayAverage7day, 'USA Past 7 Days 7-Day Running Average', size=4)
 
 #=================================================================================
 # Aggregate Case Rate
 #=================================================================================
-def plot_USA_case_rate(df, title='County Case Rate', size=1):
+def plot_usa_case_rate(df, title='County Case Rate', size=1):
     f, ax = plt.subplots(1, 1, figsize=(4 * size, 2 * size))
     g = sns.lineplot(x="date", y="Cases100k7D", data=df, color='blue', label="USA Case Rate")
 
@@ -86,7 +86,7 @@ USAcvd60d = USA_case_rate_aggregate.iloc[-60:]
 USAcvd30d = USA_case_rate_aggregate.iloc[-30:]
 USAcvd7d = USA_case_rate_aggregate.iloc[-7:]
 
-plot_USA_case_rate(USA_case_rate_aggregate, 'Aggregate USA Case Rate', size=4)
-plot_USA_case_rate(USAcvd60d, 'USA Case Rate Past 60 Days', size=4)
-plot_USA_case_rate(USAcvd30d, 'USA Case Rate Past 30 Days', size=4)
-plot_USA_case_rate(USAcvd7d, 'USA Case Rate Past 7 Days', size=4)
+plot_usa_case_rate(USA_case_rate_aggregate, 'Aggregate USA Case Rate', size=4)
+plot_usa_case_rate(USAcvd60d, 'USA Case Rate Past 60 Days', size=4)
+plot_usa_case_rate(USAcvd30d, 'USA Case Rate Past 30 Days', size=4)
+plot_usa_case_rate(USAcvd7d, 'USA Case Rate Past 7 Days', size=4)
