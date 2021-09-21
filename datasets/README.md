@@ -1,4 +1,4 @@
-# Definitions of outbreaks #
+# Definitions of outbreaks for childcare #
 
 ## Family Child Care Homes ##
 One person (i.e., provider, provider’s household member or child in care) with laboratory confirmation of COVID-19 with at least one additional person meeting one of the following criteria within 14 days:
