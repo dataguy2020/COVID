@@ -45,7 +45,7 @@ deaths = deaths.sort_index()
 print (deaths.dtypes)
 print(deaths.tail())
 
-deaths.to_csv(r'DeathsbyDay.csv')
+deaths.to_csv('DeathsbyDay.csv')
 
 #======== Combining two Data Sets ========#
 CVD['deathsbyDay'] = deaths['Count_']
