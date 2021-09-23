@@ -84,4 +84,4 @@ plot_state_deaths(cvd_case_rate_aggregate, 'Aggregate Death 7-Day Running Averag
 plot_state_deaths(sevenDayAverage60day, 'Past 60 Days Death 7-Day Running Average', size=4)
 plot_state_deaths(sevenDayAverage45day, 'Past 45 Days Death 7-Day Running Average', size=4)
 plot_state_deaths(sevenDayAverage30day, 'Past 30 Days Death 7-Day Running Average', size=4)
-plot_state_deaths(sevenDayAverage7day, 'Past Death 7-Day Running Average', size=4)
+plot_state_deaths(sevenDayAverage7day, 'Past 7 Days Death 7-Day Running Average', size=4)
