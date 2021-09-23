@@ -45,7 +45,7 @@ deaths = deaths.sort_index()
 print (deaths.dtypes)
 print(deaths.tail())
 
-deaths.to_csv('DeathsbyDay.csv')
+deaths.to_csv(r'DeathsbyDay.csv')
 
 #======== Combining two Data Sets ========#
 CVD['deathsbyDay'] = deaths['Count_']
@@ -54,3 +54,32 @@ print (CVD.dtypes)
 print(CVD.tail())
 
 CVD.to_csv('DeathData.csv')
+print (CVD.dtypes)
+
+#=================================================================================
+# 7-Day Running Average
+#=================================================================================
+def plot_state_deaths (df, title='7-Day Case Count', size = 1):
+    f, ax = plt.subplots(1,1, figsize=(4*size,2*size))
+    g = sns.lineplot(x="DATE", y="DailyDeaths7D", data=df, color='blue', label="Daily Reported Deaths")
+    g = sns.lineplot(x="DATE", y="deathsbyDay7Day", data=df, color='green', label="Deaths by Day")
+
+    
+    plt.xlabel('Date')
+    plt.ylabel(' 7-Day Average')
+    plt.xticks(rotation=90)
+    plt.title(f' {title} ')
+    ax.grid(color='black', linestyle='dotted', linewidth=0.75)
+    plt.savefig(f'{title}.png')
+    plt.show()
+
+cvd_case_rate_aggregate = CVD.groupby(['DATE']).sum().reset_index()
+sevenDayAverage60day = cvd_case_rate_aggregate.iloc[-60:]
+sevenDayAverage30day = cvd_case_rate_aggregate.iloc[-30:]
+sevenDayAverage7day = cvd_case_rate_aggregate.iloc[-7:]
+
+
+plot_state_deaths(cvd_case_rate_aggregate, 'Aggregate 7-Day Running Average', size=4)
+plot_state_deaths(sevenDayAverage60day, 'Past 60 Days 7-Day Running Average', size=4)
+plot_state_deaths(sevenDayAverage30day, 'Past 30 Days 7-Day Running Average', size=4)
+plot_state_deaths(sevenDayAverage7day, 'Past 7 Days 7-Day Running Average', size=4)
