@@ -75,11 +75,13 @@ def plot_state_deaths (df, title='7-Day Case Count', size = 1):
 
 cvd_case_rate_aggregate = CVD.groupby(['DATE']).sum().reset_index()
 sevenDayAverage60day = cvd_case_rate_aggregate.iloc[-60:]
+sevenDayAverage45day = cvd_case_rate_aggregate.iloc[-45:]
 sevenDayAverage30day = cvd_case_rate_aggregate.iloc[-30:]
 sevenDayAverage7day = cvd_case_rate_aggregate.iloc[-7:]
 
 
 plot_state_deaths(cvd_case_rate_aggregate, 'Aggregate 7-Day Running Average', size=4)
 plot_state_deaths(sevenDayAverage60day, 'Past 60 Days 7-Day Running Average', size=4)
+plot_state_deaths(sevenDayAverage45day, 'Past 45 Days 7-Day Running Average', size=4)
 plot_state_deaths(sevenDayAverage30day, 'Past 30 Days 7-Day Running Average', size=4)
 plot_state_deaths(sevenDayAverage7day, 'Past 7 Days 7-Day Running Average', size=4)
