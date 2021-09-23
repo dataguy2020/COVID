@@ -13,6 +13,7 @@ python3 USA.py
 python3 county.py
 python3 vaccines.py
 python3 covidbyage.py
+python3 deaths.py
 mv *.png data/$today
 mv *.csv data/$today
 git add *
