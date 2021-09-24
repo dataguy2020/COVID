@@ -163,7 +163,7 @@ cvd30d = casesbyage_rate_aggregate.iloc[-30:]
 cvd7d = casesbyage_rate_aggregate.iloc[-7:]
 
 plot_casesbyage_percapita(casesbyage_rate_aggregate,'CASES_BY_AGE_CASERATE-Maryland_Aggregate_Case_Rate')
-plot_casesbyage_percapita(cvd60d,'CCASES_BY_AGE_CASERATE-Maryland-Previous_60_Days_State_Case_Rate')
-plot_casesbyage_percapita(cvd45d,'CCASES_BY_AGE_CASERATE-Maryland-Previous_45_Days_State_Case_Rate')
+plot_casesbyage_percapita(cvd60d,'CASES_BY_AGE_CASERATE-Maryland-Previous_60_Days_State_Case_Rate')
+plot_casesbyage_percapita(cvd45d,'CASES_BY_AGE_CASERATE-Maryland-Previous_45_Days_State_Case_Rate')
 plot_casesbyage_percapita(cvd30d,'CASES_BY_AGE_CASERATE-Maryland-Previous_30_Days__State_Case_Rate')
 plot_casesbyage_percapita(cvd7d,'CASES_BY_AGE_CASERATE-Maryland-Previous_7_Days_State_Case_Rate')
