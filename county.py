@@ -8,6 +8,63 @@ import datetime as dt
 from matplotlib import pyplot as plt
 import seaborn as sns
 
+#==============================
+# Below are the different regions of Maryland
+#============================== 
+
+#==============================
+# Western Region
+#==============================
+# Alleghany
+# Washington
+# Garrett
+
+#==============================
+# Southern Region
+#==============================
+# Calvert
+# Somerset
+# Charles
+
+#==============================
+# Central Region
+#==============================
+# Baltimore County
+# Baltimore City
+# Anne Arundel
+# Harford
+# Caroll
+# Howard
+
+#==============================
+# Capial Region
+#==============================
+# Montgomery
+# Prince George's
+# Fredrick
+
+#==============================
+# Eastern Shor Region
+#==============================
+# Cecil
+# Kent
+# Queen Anne's
+# Talbot
+# Caroline
+# Dorchester
+# Wicomico 
+# St. Mary's 
+# Worchester
+
+#==============================
+# I-95 Corridor
+#==============================
+# Baltimore County
+# Baltimore City
+# Cecil
+# Harford
+# Howard
+# Prince George's
 
 CountyPopulation=pd.read_csv("https://opendata.maryland.gov/api/views/5zc8-s5s9/rows.csv")
 
