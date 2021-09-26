@@ -13,50 +13,19 @@ import seaborn as sns
 # ==============================
 # Western Region - Alleghany, Garrett, Washington
 # Southern Region - Calvert, Charles, Somerset
-# Central Region
-# ==============================
-# Baltimore County
-# Baltimore City
-# Anne Arundel
-# Harford
-# Caroll
-# Howard
+# Central Region -  Baltimore County, Baltimore City, Anne Arundel, Harford, Caroll, Howard
+# Capial Region - Montgomery, PG, Fredrick
+# Eastern Shor Region - Cecil, Kent, Queen Anne's, Talbot, Caroline, Dorchester, Wicomico, St. Mary's, Worchester
+# I-95 Corridor - Baltimore County, Baltimore City, Cecil, Harford, Howard, PG
 
-# ==============================
-# Capial Region
-# ==============================
-# Montgomery
-# Prince George's
-# Fredrick
-
-# ==============================
-# Eastern Shor Region
-# ==============================
-# Cecil
-# Kent
-# Queen Anne's
-# Talbot
-# Caroline
-# Dorchester
-# Wicomico 
-# St. Mary's 
-# Worchester
-
-# ==============================
-# I-95 Corridor
-# ==============================
-# Baltimore County
-# Baltimore City
-# Cecil
-# Harford
-# Howard
-# Prince George's
 
 CountyPopulation = pd.read_csv("https://opendata.maryland.gov/api/views/5zc8-s5s9/rows.csv")
 
 AACountyPop = CountyPopulation[
-    (CountyPopulation.Jurisdiction == "Anne Arundel County") & (CountyPopulation.Category == "Total") &
-    (CountyPopulation.Year == 2020)]
+    (CountyPopulation.Category == "Total") & (CountyPopulation.Year == 2020)]
+print(AACountyPop.tail())
+print(AACountyPop.dtypes)
+AACountyPop.to_csv('CountyPopulation.csv')
 
 # ===================================================================
 # County Populations from the State of the Maryland
@@ -70,22 +39,22 @@ CalvertCountyPopulation = 94606
 PGCountyPopulation = 916142
 HarfordCountyPopulation = 255441
 MontgomeryCountyPopulation = 1050688
-alleghanyPopulation = 0
-WashingtonCountyPopulation = 0
-GarrettPopulation = 0
-SomersetPopulation = 0
-CharlesPopulation = 0
-carollPopulation = 0
-fredrickPopulation = 0
-CecilPopulation = 0
-kentpopulation = 0
-qapopulation = 0
-talbotpopulation = 0
-carolinePopulation = 0
-dorchesterPopulation = 0
-wicomicopopulation = 0
-stmaryPopulation = 0
-worchesterPopulation = 0
+alleghanyPopulation = 76403
+WashingtonCountyPopulation = 156797
+GarrettPopulation = 30293
+SomersetPopulation = 26750
+CharlesPopulation = 167042
+carollPopulation = 169199
+fredrickPopulation = 260780
+CecilPopulation = 104601
+kentpopulation = 20896
+qapopulation = 50734
+talbotpopulation = 38856
+carolinePopulation = 34049
+dorchesterPopulation = 34302
+wicomicopopulation = 106202
+stmaryPopulation = 120154
+worchesterPopulation = 53101
 
 # ===================================================================
 # Example of Calcuation for Case Rate
