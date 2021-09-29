@@ -15,12 +15,13 @@ import pandas as pd
 # Eastern Shor Region - Cecil, Kent, Queen Anne's, Talbot, Caroline, Dorchester, Wicomico, St. Mary's, Worchester
 # I-95 Corridor - Baltimore County, Baltimore City, Cecil, Harford, Howard, PG
 
-
+#Pulling data from source regarding population throughout Maryland
 CountyPopulation = pd.read_csv("https://opendata.maryland.gov/api/views/5zc8-s5s9/rows.csv")
 
 CountiesPop = CountyPopulation[
     (CountyPopulation.Category == "Total") & (CountyPopulation.Year == 2020)]
 
+#Various State Populations
 AlleghanyCountyPopulation =   CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "Allegany County")].iat[0]
 AnneArundelCountyPopulation = CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "Anne Arundel County")].iat[0]
 BaltimoreCityPopulation =     CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "Baltimore City")].iat[0]
@@ -46,3 +47,53 @@ TalbotCountyPopulation =   CountiesPop["Total"][(CountiesPop.Category == "Total"
 WashingtonCountyPopulation =   CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "Washington County")].iat[0]
 WicomicoCountyPopulation =   CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "Wicomico County")].iat[0]
 WorcesterCountyPopulation =   CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "Worcester County")].iat[0]
+
+#Pulling Main COVID Data related to Cases per County
+CVD = pd.read_csv('https://opendata.arcgis.com/datasets/0573e90adab5434f97b082590c503bc1_0.csv')
+CVD['AACountyPop'] = AACountyPop['Total']
+CVD['ndate'] = CVD['DATE'] + '00'
+
+# Convert string value of date to datetime format
+CVD['ndate'] = [dt.datetime.strptime(x, '%Y/%m/%d %H:%M:%S%z')
+                for x in CVD['ndate']]
+
+#calculating data for various County data pieces
+CVD['AADailyCases'] = CVD['Anne_Arundel'].diff()
+CVD['AA7Day'] = CVD['AADailyCases'].rolling(window=7).mean()
+CVD['AADaily100K'] = (CVD['AADailyCases'] / AnneArundelPopulation) * 100000
+CVD['AA100k7D'] = CVD['AADaily100K'].rolling(window=7).mean()
+
+CVD['BaltCountyDailyCases'] = CVD['Baltimore'].diff()
+CVD['BaltimoreCounty7Day'] = CVD['BaltCountyDailyCases'].rolling(window=7).mean()
+CVD['BaltimoreCountyDaily100K'] = (CVD['BaltCountyDailyCases'] / BaltimoreCountyPopulation) * 100000
+CVD['BaltimoreCounty100k7D'] = CVD['BaltimoreCountyDaily100K'].rolling(window=7).mean()
+
+CVD['BaltimoreCityDC'] = CVD['Baltimore_City'].diff()
+CVD['BaltCity7Day'] = CVD['BaltimoreCityDC'].rolling(window=7).mean()
+CVD['BaltCityDaily100k'] = (CVD['BaltimoreCityDC'] / BaltimoreCityPopulation) * 100000
+CVD['BaltimoreCity100k7D'] = CVD['BaltCityDaily100k'].rolling(window=7).mean()
+
+CVD['HowardDC'] = CVD['Howard'].diff()
+CVD['Howard7Day'] = CVD['HowardDC'].rolling(window=7).mean()
+CVD['HowardCountyDaily100K'] = (CVD['HowardDC'] / HowardCountyPopulation) * 100000
+CVD['HowardCounty100k7D'] = CVD['HowardCountyDaily100K'].rolling(window=7).mean()
+
+CVD['CalvertDC'] = CVD['Calvert'].diff()
+CVD['Calvert7Day'] = CVD['CalvertDC'].rolling(window=7).mean()
+CVD['CalvertDaily100k'] = (CVD['CalvertDC'] / CalvertCountyPopulation) * 100000
+CVD['Calvert100k7D'] = CVD['CalvertDaily100k'].rolling(window=7).mean()
+
+CVD['PGDC'] = CVD['Prince_Georges'].diff()
+CVD['PG7Day'] = CVD['PGDC'].rolling(window=7).mean()
+CVD['PGDaily100k'] = (CVD['PGDC'] / PGCountyPopulation) * 100000
+CVD['PG100k7D'] = CVD['PGDaily100k'].rolling(window=7).mean()
+
+CVD['HarfordDC'] = CVD['Harford'].diff()
+CVD['Hardford7Day'] = CVD['HarfordDC'].rolling(window=7).mean()
+CVD['Harford100kDaily'] = (CVD['HarfordDC'] / HarfordCountyPopulation) * 100000
+CVD['Hardford100k7D'] = CVD['Harford100kDaily'].rolling(window=7).mean()
+
+CVD['MontgomeryDC'] = CVD['Montgomery'].diff()
+CVD['Montgomery7Day'] = CVD['MontgomeryDC'].rolling(window=7).mean()
+CVD['Montgomery100kDaily'] = (CVD['MontgomeryDC'] / MontgomeryCountyPopulation) * 100000
+CVD['Montgomery100k7D'] = CVD['Montgomery100kDaily'].rolling(window=7).mean()
