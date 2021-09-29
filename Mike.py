@@ -21,6 +21,5 @@ CountyPopulation = pd.read_csv("https://opendata.maryland.gov/api/views/5zc8-s5s
 AACountyPop = CountyPopulation[
     (CountyPopulation.Category == "Total") & (CountyPopulation.Year == 2020)]
 
-#TestPopulation = AACountyPop[(AACountyPop.Category == "Total") & (AACountyPop.Jurisdiction == "Anne Arundel County")]
 AnneArundelCountyPopulation = AACountyPop["Total"][(AACountyPop.Category == "Total") & (AACountyPop.Jurisdiction == "Anne Arundel County")].iat[0]
 print("County Population selected is: ", AnneArundelCountyPopulation)
