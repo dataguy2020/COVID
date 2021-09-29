@@ -19,6 +19,12 @@ import seaborn as sns
 # I-95 Corridor - Baltimore County, Baltimore City, Cecil, Harford, Howard, PG
 
 
+
+
+# ===================================================================
+# County Populations from the State of the Maryland
+# Source - https://opendata.maryland.gov/api/views/5zc8-s5s9/rows.csv 2020 Total
+# ===================================================================
 CountyPopulation = pd.read_csv("https://opendata.maryland.gov/api/views/5zc8-s5s9/rows.csv")
 
 AACountyPop = CountyPopulation[
@@ -28,44 +34,20 @@ print(AACountyPop.dtypes)
 AACountyPop.to_csv('CountyPopulation.csv')
 
 # ===================================================================
-# County Populations from the State of the Maryland
-# Source - https://opendata.maryland.gov/api/views/5zc8-s5s9/rows.csv 2020 Total
-# ===================================================================
-AnneArundelPopulation = 573231
-BaltimoreCountyPopulation = 847000
-BaltimoreCityPopulation = 616292
-HowardCountyPopulation = 336921
-CalvertCountyPopulation = 94606
-PGCountyPopulation = 916142
-HarfordCountyPopulation = 255441
-MontgomeryCountyPopulation = 1050688
-alleghanyPopulation = 76403
-WashingtonCountyPopulation = 156797
-GarrettPopulation = 30293
-SomersetPopulation = 26750
-CharlesPopulation = 167042
-carollPopulation = 169199
-fredrickPopulation = 260780
-CecilPopulation = 104601
-kentpopulation = 20896
-qapopulation = 50734
-talbotpopulation = 38856
-carolinePopulation = 34049
-dorchesterPopulation = 34302
-wicomicopopulation = 106202
-stmaryPopulation = 120154
-worchesterPopulation = 53101
-
-# ===================================================================
 # Example of Calcuation for Case Rate
 # ===================================================================
 # CVD['Daily100k'] = (CVD['DailyCases'] / statePopulation) * 100000
 # CVD['100k7D'] = CVD['Daily100k'].rolling(window=7).mean()
 
+#AACountyPop = CountyPopulation[(CountyPopulation.Category == "Total") & (CountyPopulation.Year == 2020)]
 
 CVD = pd.read_csv('https://opendata.arcgis.com/datasets/0573e90adab5434f97b082590c503bc1_0.csv')
 CVD['AACountyPop'] = AACountyPop['Total']
 CVD['ndate'] = CVD['DATE'] + '00'
+
+TestPopulation = CountyPopulation[(CountyPopulation.Category == "Total") & (CountyPopulation.Jurisdiction == "Anne Arundel County")]
+print (TestPopulation)
+print ("\n")
 
 # Convert string value of date to datetime format
 CVD['ndate'] = [dt.datetime.strptime(x, '%Y/%m/%d %H:%M:%S%z')
