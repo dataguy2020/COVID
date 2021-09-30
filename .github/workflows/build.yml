@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - master
+      - County-rework
   pull_request:
     types: [opened, synchronize, reopened]
 jobs:
