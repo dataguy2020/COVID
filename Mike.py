@@ -110,3 +110,11 @@ CVD['WashingtonDC'] = CVD['Washington'].diff()
 CVD['Washington7Day'] = CVD['WashingtonDC'].rolling(window=7).mean()
 CVD['Washington100kDaily'] = (CVD['WashingtonDC'] / WashingtonCountyPopulation) * 100000
 CVD['Washington100k7D'] = CVD['Washington100kDaily'].rolling(window=7).mean()
+
+
+# Graphing Daily Cases
+# ====================
+
+
+# Graphing Case Rate
+# ====================
