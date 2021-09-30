@@ -3,6 +3,10 @@ __author__ = "Michael Brown"
 __license__ = "Based off of sript by Sreenivas Bhattiprolu of Python for Microscopists"
 
 import pandas as pd
+import datetime as dt
+from matplotlib import pyplot as plt
+import seaborn as sns
+
 
 
 # ==============================
@@ -15,14 +19,14 @@ import pandas as pd
 # Eastern Shor Region - Cecil, Kent, Queen Anne's, Talbot, Caroline, Dorchester, Wicomico, St. Mary's, Worchester
 # I-95 Corridor - Baltimore County, Baltimore City, Cecil, Harford, Howard, PG
 
-#Pulling data from source regarding population throughout Maryland
+# Pulling data from source regarding population throughout Maryland
 CountyPopulation = pd.read_csv("https://opendata.maryland.gov/api/views/5zc8-s5s9/rows.csv")
 
 CountiesPop = CountyPopulation[
     (CountyPopulation.Category == "Total") & (CountyPopulation.Year == 2020)]
 
-#Various State Populations
-AlleghanyCountyPopulation =   CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "Allegany County")].iat[0]
+# Various State Populations
+AlleganyCountyPopulation =   CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "Allegany County")].iat[0]
 AnneArundelCountyPopulation = CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "Anne Arundel County")].iat[0]
 BaltimoreCityPopulation =     CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "Baltimore City")].iat[0]
 BaltimoreCountyPopulation =   CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "Baltimore County")].iat[0]
@@ -48,19 +52,18 @@ WashingtonCountyPopulation =   CountiesPop["Total"][(CountiesPop.Category == "To
 WicomicoCountyPopulation =   CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "Wicomico County")].iat[0]
 WorcesterCountyPopulation =   CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "Worcester County")].iat[0]
 
-#Pulling Main COVID Data related to Cases per County
+# Pulling Main COVID Data related to Cases per County
 CVD = pd.read_csv('https://opendata.arcgis.com/datasets/0573e90adab5434f97b082590c503bc1_0.csv')
-CVD['AACountyPop'] = AACountyPop['Total']
 CVD['ndate'] = CVD['DATE'] + '00'
 
 # Convert string value of date to datetime format
 CVD['ndate'] = [dt.datetime.strptime(x, '%Y/%m/%d %H:%M:%S%z')
                 for x in CVD['ndate']]
 
-#calculating data for various County data pieces
+# calculating data for various County data pieces
 CVD['AADailyCases'] = CVD['Anne_Arundel'].diff()
 CVD['AA7Day'] = CVD['AADailyCases'].rolling(window=7).mean()
-CVD['AADaily100K'] = (CVD['AADailyCases'] / AnneArundelPopulation) * 100000
+CVD['AADaily100K'] = (CVD['AADailyCases'] / AnneArundelCountyPopulation) * 100000
 CVD['AA100k7D'] = CVD['AADaily100K'].rolling(window=7).mean()
 
 CVD['BaltCountyDailyCases'] = CVD['Baltimore'].diff()
@@ -97,3 +100,13 @@ CVD['MontgomeryDC'] = CVD['Montgomery'].diff()
 CVD['Montgomery7Day'] = CVD['MontgomeryDC'].rolling(window=7).mean()
 CVD['Montgomery100kDaily'] = (CVD['MontgomeryDC'] / MontgomeryCountyPopulation) * 100000
 CVD['Montgomery100k7D'] = CVD['Montgomery100kDaily'].rolling(window=7).mean()
+
+CVD['AlleganyDC'] = CVD ['Allegany'].diff()
+CVD['Allegany7Day'] = CVD['AlleganyDC'].rolling(window=7).mean()
+CVD['Allegany100kDaily'] = (CVD['AlleganyDC'] / AlleganyCountyPopulation) * 100000
+CVD['Allegany100k7D'] = CVD['Allegany100kDaily'].rolling(window=7).mean()
+
+CVD['WashingtonDC'] = CVD['Washington'].diff()
+CVD['Washington7Day'] = CVD['WashingtonDC'].rolling(window=7).mean()
+CVD['Washington100kDaily'] = (CVD['WashingtonDC'] / WashingtonCountyPopulation) * 100000
+CVD['Washington100k7D'] = CVD['Washington100kDaily'].rolling(window=7).mean()
