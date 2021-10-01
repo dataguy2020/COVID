@@ -111,6 +111,13 @@ CVD['Washington7Day'] = CVD['WashingtonDC'].rolling(window=7).mean()
 CVD['Washington100kDaily'] = (CVD['WashingtonDC'] / WashingtonCountyPopulation) * 100000
 CVD['Washington100k7D'] = CVD['Washington100kDaily'].rolling(window=7).mean()
 
+CVD['GarrettDC'] = CVD['Garrett'].diff()
+CVD['Garrett7Day'] = CVD['GarrettDC'].rolling(window=7).mean()
+CVD['Garrett100kDay'] = (CVD['GarrettDC'] / GarrettCountyPopulation) * 100000
+CVD['Garrett100k7D'] = CVD['Garrett100kDay'].rolling(window=7).mean()
+
+CVD['SomersetDC'] = CVD['Somerset'].diff()
+
 
 # Graphing Daily Cases
 # ====================
