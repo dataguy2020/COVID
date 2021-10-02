@@ -7,8 +7,6 @@ import datetime as dt
 from matplotlib import pyplot as plt
 import seaborn as sns
 
-
-
 # ==============================
 # Below are the different regions of Maryland
 # ==============================
@@ -32,11 +30,11 @@ BaltimoreCityPopulation =     CountiesPop["Total"][(CountiesPop.Category == "Tot
 BaltimoreCountyPopulation =   CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "Baltimore County")].iat[0]
 CalvertCountyPopulation =   CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "Calvert County")].iat[0]
 CarolineCountyPopulation =   CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "Caroline County")].iat[0]
-CarollCountyPopulation =   CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "Carroll County")].iat[0]
+CarrollCountyPopulation =   CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "Carroll County")].iat[0]
 CecilCountyPopulation =   CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "Cecil County")].iat[0]
 CharlesCountyPopulation =   CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "Charles County")].iat[0]
 DorchestserCountyPopulation =   CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "Dorchester Co")].iat[0]
-FredrickCountyPopulation =   CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "Frederick County")].iat[0]
+FrederickCountyPopulation =   CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "Frederick County")].iat[0]
 GarrettCountyPopulation =   CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "Garrett County")].iat[0]
 HarfordCountyPopulation =   CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "Harford County")].iat[0]
 HowardCountyPopulation =   CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "Howard County")].iat[0]
@@ -51,7 +49,6 @@ TalbotCountyPopulation =   CountiesPop["Total"][(CountiesPop.Category == "Total"
 WashingtonCountyPopulation =   CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "Washington County")].iat[0]
 WicomicoCountyPopulation =   CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "Wicomico County")].iat[0]
 WorcesterCountyPopulation =   CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "Worcester County")].iat[0]
-
 # Pulling Main COVID Data related to Cases per County
 CVD = pd.read_csv('https://opendata.arcgis.com/datasets/0573e90adab5434f97b082590c503bc1_0.csv')
 CVD['ndate'] = CVD['DATE'] + '00'
@@ -101,7 +98,7 @@ CVD['Montgomery7Day'] = CVD['MontgomeryDC'].rolling(window=7).mean()
 CVD['Montgomery100kDaily'] = (CVD['MontgomeryDC'] / MontgomeryCountyPopulation) * 100000
 CVD['Montgomery100k7D'] = CVD['Montgomery100kDaily'].rolling(window=7).mean()
 
-CVD['AlleganyDC'] = CVD ['Allegany'].diff()
+CVD['AlleganyDC'] = CVD['Allegany'].diff()
 CVD['Allegany7Day'] = CVD['AlleganyDC'].rolling(window=7).mean()
 CVD['Allegany100kDaily'] = (CVD['AlleganyDC'] / AlleganyCountyPopulation) * 100000
 CVD['Allegany100k7D'] = CVD['Allegany100kDaily'].rolling(window=7).mean()
@@ -117,9 +114,69 @@ CVD['Garrett100kDay'] = (CVD['GarrettDC'] / GarrettCountyPopulation) * 100000
 CVD['Garrett100k7D'] = CVD['Garrett100kDay'].rolling(window=7).mean()
 
 CVD['SomersetDC'] = CVD['Somerset'].diff()
-CVD['Somerset7Day'] = CVD['SomersetDC'].rolling(window=-7).mean()
-CVD['Somerset100kDay'] = CVD['SomersetDC'] / SomersetCountyPopulation) * 100000
+CVD['Somerset7Day'] = CVD['SomersetDC'].rolling(window=7).mean()
+CVD['Somerset100kDay'] = (CVD['SomersetDC'] / SomersetCountyPopulation) * 100000
 CVD['Somerset100k7D'] = CVD['Somerset100kDay'].rolling(window=7).mean()
+
+CVD['CharlesDC'] = CVD['Charles'].diff()
+CVD['Charles7Day'] = CVD['CharlesDC'].rolling(window=7).mean()
+CVD['Charles100kDay'] = (CVD['CharlesDC'] / CharlesCountyPopulation) * 100000
+CVD['Charles100k7D'] = CVD['Charles100kDay'].rolling(window=7).mean()
+
+CVD['CarrollDC'] = CVD['Carroll'].diff()
+CVD['Carroll7Day'] = CVD['CarrollDC'].rolling(window=7).mean()
+CVD['Carroll100kDay'] = (CVD['CarrollDC'] / CarrollCountyPopulation) * 100000
+CVD['Carroll100k7D'] = CVD['Carroll100kDay'].rolling(window=7).mean()
+
+CVD['FrederickDC'] = CVD['Frederick'].diff()
+CVD['Frederick7Day'] = CVD['FrederickDC'].rolling(window=7).mean()
+CVD['Frederick100kDay'] = (CVD['FrederickDC'] / FrederickCountyPopulation) * 100000
+CVD['Frederick100k7Day'] = CVD['Frederick100kDay'].rolling(window=7).mean()
+
+CVD['CecilDC'] = CVD['Cecil'].diff()
+CVD['Cecil7Day'] = CVD['CecilDC'].rolling(window=7).mean()
+CVD['Cecil100kDay'] = (CVD['CecilDC'] / CecilCountyPopulation) * 100000
+CVD['Cecil100k7Day'] = CVD['Cecil100kDay'].rolling(window=7).mean()
+
+CVD['KentDC'] = CVD['Kent'].diff()
+CVD['Kent7Day'] = CVD['KentDC'].rolling(window=7).mean()
+CVD['Kent100kDay'] = (CVD['KentDC'] / KentCountyPopulation) * 100000
+CVD['Kent100k7Day'] = CVD['Kent100kDay'].rolling(window=7).mean()
+
+CVD['QADC'] = CVD['Queen_Annes'].diff()
+CVD['QA7Day'] = CVD['QADC'].rolling(window=7).mean()
+CVD['QA100kDay'] = (CVD['QADC'] / QACountyPopulation) * 100000
+CVD['QA100k7Day'] = CVD['QA100kDay'].rolling(window=7).mean()
+
+CVD['TalbotDC'] = CVD['Talbot'].diff()
+CVD['Talbot7Day'] = CVD['Talbot'].rolling(window=7).mean()
+CVD['Talbot100kDay'] = (CVD['TalbotDC'] / TalbotCountyPopulation) * 100000
+CVD['Talbot100k7Day'] = CVD['Talbot100kDay'].rolling(window=7).mean()
+
+CVD['CarolineDC'] = CVD['Caroline'].diff()
+CVD['Caroline7Day'] = CVD['CarolineDC'].rolling(window=7).mean()
+CVD['Caroline100kDay'] = (CVD['CarolineDC'] / CarolineCountyPopulation) * 100000
+CVD['Caroline100k7Day'] = CVD['Caroline100kDay'].rolling(window=7).mean()
+
+CVD['DorchesterDC'] = CVD['Dorchester'].diff()
+CVD['Dorchester7Day'] = CVD['DorchesterDC'].rolling(window=7).mean()
+CVD['Dorchester100kDay'] = (CVD['DorchesterDC'] / DorchestserCountyPopulation) * 100000
+CVD['Dorchester100k7Day'] = CVD['Dorchester100kDay'].rolling(window=7).mean()
+
+CVD['WicomicoDC'] = CVD['Wicomico'].diff()
+CVD['Wicomico7Day'] = CVD['WicomicoDC'].rolling(window=7).mean()
+CVD['Wicomico100kDay'] = (CVD['WicomicoDC'] / WicomicoCountyPopulation) * 100000
+CVD['Wicomico100k7Day'] = CVD['Wicomico100kDay'].rolling(window=7).mean()
+
+CVD['St_MarysDC'] = CVD['St_Marys'].diff()
+CVD['St_Marys7Day'] = CVD['St_MarysDC'].rolling(window=7).mean()
+CVD['St_Marys100kDay'] = (CVD['St_MarysDC'] / StMaryCountyPopulation) * 100000
+CVD['St_Marys100k7Day'] = CVD['St_Marys100kDay'].rolling(window=7).mean()
+
+CVD['WorcesterDC'] = CVD['Worcester'].diff()
+CVD['Worcester7Day'] = CVD['WorcesterDC'].rolling(window=7).mean()
+CVD['Worcester100kDay'] = (CVD['WorcesterDC'] / WorcesterCountyPopulation) * 100000
+CVD['Worcester100k7Day'] = CVD['Worcester100kDay'].rolling(window=7).mean()
 
 
 # Graphing Daily Cases
