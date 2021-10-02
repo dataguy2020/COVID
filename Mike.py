@@ -179,8 +179,39 @@ CVD['Worcester100kDay'] = (CVD['WorcesterDC'] / WorcesterCountyPopulation) * 100
 CVD['Worcester100k7Day'] = CVD['Worcester100kDay'].rolling(window=7).mean()
 
 
-# Graphing Daily Cases
-# ====================
+# =================================================================================
+# 7-Day Running Average
+# =================================================================================
+def plot_counties_around_aa(df, title='7-Day Case Count', size=1):
+    f, ax = plt.subplots(1, 1, figsize=(4 * size, 2 * size))
+    g = sns.lineplot(x="ndate", y="AA7Day", data=df, color='blue', label="Anne Arundel")
+    g = sns.lineplot(x="ndate", y="BaltimoreCounty7Day", data=df, color='green', label="Baltimore County")
+    g = sns.lineplot(x="ndate", y="BaltCity7Day", data=df, color='black', label="Baltimore City")
+    g = sns.lineplot(x="ndate", y="Howard7Day", data=df, color='red', label="Howard County")
+    g = sns.lineplot(x="ndate", y="Calvert7Day", data=df, color='cyan', label="Calvert County")
+    g = sns.lineplot(x="ndate", y="PG7Day", data=df, color='purple', label="Prince Greorge's County")
+
+    plt.xlabel('Date')
+    plt.ylabel(' 7-Day Average ')
+    plt.xticks(rotation=90)
+    plt.title(f' {title} ')
+    ax.grid(color='black', linestyle='dotted', linewidth=0.75)
+    plt.savefig(f'{title}.png')
+    plt.show()
+
+
+countiesaroundaaaggregate = CVD.groupby(['ndate']).sum().reset_index()
+countiesaroundaaaggregate60day = countiesaroundaaaggregate.iloc[-60:]
+countiesaroundaaaggregate45day = countiesaroundaaaggregate.iloc[-45:]
+countiesaroundaaaggregate30day = countiesaroundaaaggregate.iloc[-30:]
+countiesaroundaaaggregate7day = countiesaroundaaaggregate.iloc[-7:]
+
+plot_counties_around_aa(countiesaroundaaaggregate, 'Case Count for Counties Aggregate 7-Day Running Average', size=4)
+plot_counties_around_aa(countiesaroundaaaggregate60day, 'Case Count for Counties previous 60 Days 7-Day Running Average', size=4)
+plot_counties_around_aa(countiesaroundaaaggregate45day, 'Case Count for Counties previous 45 Days 7-Day Running Average', size=4)
+plot_counties_around_aa(countiesaroundaaaggregate30day, 'Case Count for Counties previous 30 Days 7-Day Running Average', size=4)
+plot_counties_around_aa(countiesaroundaaaggregate7day, 'Case Count for Counties previous 7 Days 7-Day Running Average', size=4)
+
 
 
 # Graphing Case Rate
