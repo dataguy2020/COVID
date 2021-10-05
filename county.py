@@ -245,3 +245,37 @@ plot_counties_around_aa(countiesaroundaaaggregate7day, 'Case Count for Counties 
 
 # Graphing Case Rate
 # ====================
+def plot_counties_around_aa_case_rate(df, title='County Case Rate', size=1):
+    f, ax = plt.subplots(1, 1, figsize=(4 * size, 2 * size))
+    g = sns.lineplot(x="ndate", y="AA100k7D", data=df, color='blue', label="Anne Arundel County Case Rate")
+    g = sns.lineplot(x="ndate", y="BaltimoreCounty100k7D", data=df, color='green', label="Baltimore County Case Rate")
+    g = sns.lineplot(x="ndate", y="BaltimoreCity100k7D", data=df, color='black', label="Baltimore City Case Rate")
+    g = sns.lineplot(x="ndate", y="HowardCounty100k7D", data=df, color='red', label="Howard County Case Rate")
+    g = sns.lineplot(x="ndate", y="Calvert100k7D", data=df, color='cyan', label="Calvert County Case Rate")
+    g = sns.lineplot(x="ndate", y="PG100k7D", data=df, color='purple', label="Prince George's County Case Rate")
+
+    plt.xlabel('Date')
+    plt.ylabel(' Cases per 100k ')
+    plt.xticks(rotation=90)
+    plt.title(f' {title} ')
+    ax.grid(color='black', linestyle='dotted', linewidth=0.75)
+    plt.savefig(f'{title}.png')
+    plt.show()
+
+
+countiesaroundaaaggregate_caserate = CVD.groupby(['ndate']).sum().reset_index()
+countiesaroundaaaggregate_caserate60d = countiesaroundaaaggregate_caserate.iloc[-60:]
+countiesaroundaaaggregate_caserate30d = countiesaroundaaaggregate_caserate.iloc[-30:]
+countiesaroundaaaggregate_caserate45d = countiesaroundaaaggregate_caserate.iloc[-45:]
+countiesaroundaaaggregate_caserate7d = countiesaroundaaaggregate_caserate.iloc[-7:]
+
+plot_counties_around_aa_case_rate(countiesaroundaaaggregate_caserate,
+                                  'Case Rate for Counties Aggregate 7-Day Running Average', size=4)
+plot_counties_around_aa_case_rate(countiesaroundaaaggregate_caserate60d,
+                                  'Case Rate for Counties previous 60 Days 7-Day Running Averag', size=4)
+plot_counties_around_aa_case_rate(countiesaroundaaaggregate_caserate45d,
+                                  'Case Rate for Counties previous 45 Days 7-Day Running Averags', size=4)
+plot_counties_around_aa_case_rate(countiesaroundaaaggregate_caserate30d,
+                                  'Case Rate for Counties previous 30 Days 7-Day Running Averag', size=4)
+plot_counties_around_aa_case_rate(countiesaroundaaaggregate_caserate7d,
+                                  'Case Rate for Counties previous 7 Days 7-Day Running Average', size=4)
