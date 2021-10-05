@@ -2,10 +2,11 @@
 __author__ = "Michael Brown"
 __license__ = "Based off of sript by Sreenivas Bhattiprolu of Python for Microscopists"
 
-import pandas as pd
 import datetime as dt
-from matplotlib import pyplot as plt
+
+import pandas as pd
 import seaborn as sns
+from matplotlib import pyplot as plt
 
 # ==============================
 # Below are the different regions of Maryland
@@ -24,31 +25,57 @@ CountiesPop = CountyPopulation[
     (CountyPopulation.Category == "Total") & (CountyPopulation.Year == 2020)]
 
 # Various State Populations
-AlleganyCountyPopulation =   CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "Allegany County")].iat[0]
-AnneArundelCountyPopulation = CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "Anne Arundel County")].iat[0]
-BaltimoreCityPopulation =     CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "Baltimore City")].iat[0]
-BaltimoreCountyPopulation =   CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "Baltimore County")].iat[0]
-CalvertCountyPopulation =   CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "Calvert County")].iat[0]
-CarolineCountyPopulation =   CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "Caroline County")].iat[0]
-CarrollCountyPopulation =   CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "Carroll County")].iat[0]
-CecilCountyPopulation =   CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "Cecil County")].iat[0]
-CharlesCountyPopulation =   CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "Charles County")].iat[0]
-DorchestserCountyPopulation =   CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "Dorchester Co")].iat[0]
-FrederickCountyPopulation =   CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "Frederick County")].iat[0]
-GarrettCountyPopulation =   CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "Garrett County")].iat[0]
-HarfordCountyPopulation =   CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "Harford County")].iat[0]
-HowardCountyPopulation =   CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "Howard County")].iat[0]
-KentCountyPopulation =   CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "Kent County")].iat[0]
-MontgomeryCountyPopulation =   CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "Montgomery County")].iat[0]
-PGCountyPopulation =   CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "Prince George's County")].iat[0]
-QACountyPopulation =   CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "Queen Anne's County")].iat[0]
-SomersetCountyPopulation =   CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "Somerset County")].iat[0]
-StMaryCountyPopulation =   CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "St. Mary's County")].iat[0]
-StatePopulation =   CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "State of Maryland")].iat[0]
-TalbotCountyPopulation =   CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "Talbot County")].iat[0]
-WashingtonCountyPopulation =   CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "Washington County")].iat[0]
-WicomicoCountyPopulation =   CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "Wicomico County")].iat[0]
-WorcesterCountyPopulation =   CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "Worcester County")].iat[0]
+AlleganyCountyPopulation = \
+    CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "Allegany County")].iat[0]
+AnneArundelCountyPopulation = \
+    CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "Anne Arundel County")].iat[0]
+BaltimoreCityPopulation = \
+    CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "Baltimore City")].iat[0]
+BaltimoreCountyPopulation = \
+    CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "Baltimore County")].iat[0]
+CalvertCountyPopulation = \
+    CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "Calvert County")].iat[0]
+CarolineCountyPopulation = \
+    CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "Caroline County")].iat[0]
+CarrollCountyPopulation = \
+    CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "Carroll County")].iat[0]
+CecilCountyPopulation = \
+    CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "Cecil County")].iat[0]
+CharlesCountyPopulation = \
+    CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "Charles County")].iat[0]
+DorchestserCountyPopulation = \
+    CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "Dorchester Co")].iat[0]
+FrederickCountyPopulation = \
+    CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "Frederick County")].iat[0]
+GarrettCountyPopulation = \
+    CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "Garrett County")].iat[0]
+HarfordCountyPopulation = \
+    CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "Harford County")].iat[0]
+HowardCountyPopulation = \
+    CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "Howard County")].iat[0]
+KentCountyPopulation = \
+    CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "Kent County")].iat[0]
+MontgomeryCountyPopulation = \
+    CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "Montgomery County")].iat[0]
+PGCountyPopulation = \
+    CountiesPop["Total"][
+        (CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "Prince George's County")].iat[0]
+QACountyPopulation = \
+    CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "Queen Anne's County")].iat[0]
+SomersetCountyPopulation = \
+    CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "Somerset County")].iat[0]
+StMaryCountyPopulation = \
+    CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "St. Mary's County")].iat[0]
+StatePopulation = \
+    CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "State of Maryland")].iat[0]
+TalbotCountyPopulation = \
+    CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "Talbot County")].iat[0]
+WashingtonCountyPopulation = \
+    CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "Washington County")].iat[0]
+WicomicoCountyPopulation = \
+    CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "Wicomico County")].iat[0]
+WorcesterCountyPopulation = \
+    CountiesPop["Total"][(CountiesPop.Category == "Total") & (CountiesPop.Jurisdiction == "Worcester County")].iat[0]
 # Pulling Main COVID Data related to Cases per County
 CVD = pd.read_csv('https://opendata.arcgis.com/datasets/0573e90adab5434f97b082590c503bc1_0.csv')
 CVD['ndate'] = CVD['DATE'] + '00'
@@ -207,12 +234,14 @@ countiesaroundaaaggregate30day = countiesaroundaaaggregate.iloc[-30:]
 countiesaroundaaaggregate7day = countiesaroundaaaggregate.iloc[-7:]
 
 plot_counties_around_aa(countiesaroundaaaggregate, 'Case Count for Counties Aggregate 7-Day Running Average', size=4)
-plot_counties_around_aa(countiesaroundaaaggregate60day, 'Case Count for Counties previous 60 Days 7-Day Running Average', size=4)
-plot_counties_around_aa(countiesaroundaaaggregate45day, 'Case Count for Counties previous 45 Days 7-Day Running Average', size=4)
-plot_counties_around_aa(countiesaroundaaaggregate30day, 'Case Count for Counties previous 30 Days 7-Day Running Average', size=4)
-plot_counties_around_aa(countiesaroundaaaggregate7day, 'Case Count for Counties previous 7 Days 7-Day Running Average', size=4)
-
-
+plot_counties_around_aa(countiesaroundaaaggregate60day,
+                        'Case Count for Counties previous 60 Days 7-Day Running Average', size=4)
+plot_counties_around_aa(countiesaroundaaaggregate45day,
+                        'Case Count for Counties previous 45 Days 7-Day Running Average', size=4)
+plot_counties_around_aa(countiesaroundaaaggregate30day,
+                        'Case Count for Counties previous 30 Days 7-Day Running Average', size=4)
+plot_counties_around_aa(countiesaroundaaaggregate7day, 'Case Count for Counties previous 7 Days 7-Day Running Average',
+                        size=4)
 
 # Graphing Case Rate
 # ====================
