@@ -211,6 +211,6 @@ cvd7d = cvd_case_rate_aggregate.iloc[-7:]
 plot_state_case_rate(cvd_case_rate_aggregate, 'Aggregate Counties Case Rate', size=4)
 
 plot_state_case_rate(cvd60d, 'Counties Case Rate Previous 60 Days', size=4)
-plot_state_case_rate(cvd45d, 'Counties Case Rate Previous 30 Days', size=4)
+plot_state_case_rate(cvd45d, 'Counties Case Rate Previous 45 Days', size=4)
 plot_state_case_rate(cvd30d, 'Counties Case Rate Previous 30 Days', size=4)
 plot_state_case_rate(cvd7d, 'Counties Case Rate Previous 7 Days', size=4)
