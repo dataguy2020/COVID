@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd /home/michael/script
+cd /home/`whoami`/script
 today=`date +%m%d%Y`
 dir="data/$today"
 if [[ ! -e $dir ]]; then
