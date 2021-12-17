@@ -18,7 +18,7 @@ import seaborn as sns
 # Eastern Shore Region - Cecil, Kent, Queen Anne's, Talbot, Caroline, Dorchester, Wicomico, St. Mary's, Worchester
 # I-95 Corridor - Baltimore County, Baltimore City, Cecil, Harford, Howard, Prince George's
 
-CountyPopulation = pd.read_csv("https://opendata.maryland.gov/api/views/5zc8-s5s9/rows.csv")
+CountyPopulation = pd.read_csv("https://opendata.arcgis.com/datasets/0573e90adab5434f97b082590c503bc1_0.csv")
 
 AACountyPop = CountyPopulation[
     (CountyPopulation.Jurisdiction == "Anne Arundel County") & (CountyPopulation.Category == "Total") &
