@@ -1,5 +1,6 @@
 #!/bin/bash
 
+#Original File
 cd /home/`whoami`/script
 today=`date +%m%d%Y`
 dir="data/$today"
@@ -14,6 +15,11 @@ python3 county.py
 python3 vaccines.py
 python3 covidbyage.py
 python3 deaths.py
+
+#Added on 12/23/201
+python3 state-hospitaliations.py
+
+#Original File
 mv *.png data/$today
 mv *.csv data/$today
 git add *
