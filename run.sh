@@ -9,15 +9,15 @@ if [[ ! -e $dir ]]; then
 fi
 
 git pull
-python3 StateData.py
-python3 USA.py
-python3 county.py
-python3 vaccines.py
-python3 covidbyage.py
-python3 deaths.py
+python3 scripts/StateData.py
+python3 scripts/USA.py
+python3 scripts/county.py
+python3 scripts/vaccines.py
+python3 scripts/covidbyage.py
+python3 scripts/deaths.py
 
 #Added on 12/23/201
-python3 state-hospitaliations.py
+python3 scripts/state-hospitaliations.py
 
 #Original File
 mv *.png data/$today
