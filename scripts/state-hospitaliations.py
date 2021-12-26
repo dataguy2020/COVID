@@ -77,7 +77,7 @@ sevenDayAverage30day = cvd_case_rate_aggregate.iloc[-30:]
 sevenDayAverage7day = cvd_case_rate_aggregate.iloc[-7:]
 
 
-plot_peds(cvd_case_rate_aggregate, 'Aggregate 7-Day Running Average', size=4)
-plot_peds(sevenDayAverage60day, 'Past 60 Days 7-Day Running Average', size=4)
-plot_peds(sevenDayAverage30day, 'Past 30 Days 7-Day Running Average', size=4)
-plot_peds(sevenDayAverage7day, 'Past 7 Days 7-Day Running Average', size=4)
+plot_peds(cvd_case_rate_aggregate, 'Hospitalizations Aggregate 7-Day Running Average', size=4)
+plot_peds(sevenDayAverage60day, 'Hospitalizations Past 60 Days 7-Day Running Average', size=4)
+plot_peds(sevenDayAverage30day, 'Hospitalizations Past 30 Days 7-Day Running Average', size=4)
+plot_peds(sevenDayAverage7day, ' Hospitalizations Past 7 Days 7-Day Running Average', size=4)
