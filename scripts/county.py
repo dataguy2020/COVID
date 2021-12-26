@@ -20,14 +20,15 @@ import seaborn as sns
 
 CountyPopulation = pd.read_csv("https://opendata.arcgis.com/datasets/0573e90adab5434f97b082590c503bc1_0.csv")
 
-AACountyPop = CountyPopulation[
-    (CountyPopulation.Jurisdiction == "Anne Arundel County") & (CountyPopulation.Category == "Total") &
-    (CountyPopulation.Year == 2020)]
+#AACountyPop = CountyPopulation[
+    #(CountyPopulation.Jurisdiction == "Anne Arundel County") & (CountyPopulation.Category == "Total") &
+    #(CountyPopulation.Year == 2020)]
 
 # ===================================================================
 # County Populations from the State of the Maryland
 # Source - https://opendata.maryland.gov/api/views/5zc8-s5s9/rows.csv 2020 Total
 # ===================================================================
+AACountyPop = 573231
 AnneArundelPopulation = 573231
 BaltimoreCountyPopulation = 847000
 BaltimoreCityPopulation = 616292
@@ -61,7 +62,7 @@ worchesterPopulation = 0
 
 
 CVD = pd.read_csv('https://opendata.arcgis.com/datasets/0573e90adab5434f97b082590c503bc1_0.csv')
-CVD['AACountyPop'] = AACountyPop['Total']
+#CVD['AACountyPop'] = AACountyPop['Total']
 CVD['ndate'] = CVD['DATE'] + '00'
 
 # Convert string value of date to datetime format
