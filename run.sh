@@ -9,7 +9,7 @@ if [[ ! -e $dir ]]; then
 fi
 
 git pull
-python3 scripts/StateData.py
+#python3 scripts/StateData.py
 python3 scripts/USA.py
 python3 scripts/county.py
 python3 scripts/vaccines.py
