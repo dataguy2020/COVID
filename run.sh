@@ -16,10 +16,13 @@ python3 scripts/vaccines.py
 python3 scripts/covidbyage.py
 python3 scripts/deaths.py
 
-#Added on 12/23/201
+#Added on 12/23/2021
 python3 scripts/state-hospitaliations.py
 
-#Original File
+#Added as backup on 12/2021
+python3 scripts/state-case-backup.py
+
+/#Original File
 mv *.png data/$today
 mv *.csv data/$today
 git add *
