@@ -22,6 +22,9 @@ python3 scripts/state-hospitaliations.py
 #Added as backup on 12/2021
 #python3 scripts/state-case-backup.py
 
+#Added on 1/12/22
+python3 scripts/aacounty.py
+
 /#Original File
 mv *.png data/$today
 mv *.csv data/$today
