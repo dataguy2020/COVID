@@ -54,7 +54,7 @@ CVD['AA100k7D-2020Census'] = CVD['AADaily100k3'].rolling(window=7).mean()
 
 print(CVD.tail())
 print(CVD.dtypes)
-CVD.to_csv('MDCountyData.csv')
+CVD.to_csv('AnneArundelMDCountyData.csv')
 
 
 # =================================================================================
