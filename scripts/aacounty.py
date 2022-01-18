@@ -13,7 +13,7 @@ CountyPopulation = pd.read_csv("https://opendata.arcgis.com/datasets/0573e90adab
 # County Populations from the State of the Maryland
 # Source - https://opendata.maryland.gov/api/views/5zc8-s5s9/rows.csv 2020 Total
 # ===================================================================
-AnneArundelPopulationMike = 573231
+#AnneArundelPopulationMike = 573231
 AnneArundelPopulationCounty = 579630
 AnneArundelPopulation2019Census = 579234
 AnneArundelPopulation2020Census = 588261
@@ -37,8 +37,8 @@ CVD['AADailyCases'] = CVD['Anne_Arundel'].diff()
 CVD['AA7Day'] = CVD['AADailyCases'].rolling(window=7).mean()
 
 #Mikes
-CVD['AADaily100K'] = (CVD['AADailyCases'] / AnneArundelPopulationMike) * 100000
-CVD['AA100k7D-MikeInitial'] = CVD['AADaily100K'].rolling(window=7).mean()
+#CVD['AADaily100K'] = (CVD['AADailyCases'] / AnneArundelPopulationMike) * 100000
+#CVD['AA100k7D-MikeInitial'] = CVD['AADaily100K'].rolling(window=7).mean()
 
 #County 2019 Estimates
 CVD['AADaily100k1'] = (CVD['AADailyCases'] / AnneArundelPopulationCounty) * 100000
@@ -91,7 +91,7 @@ plot_state_7davg(sevenDayAverage7day, 'Case Count for Counties previous 7 Days 7
 # =================================================================================
 def plot_state_case_rate(df, title='County Case Rate', size=1):
     f, ax = plt.subplots(1, 1, figsize=(4 * size, 2 * size))
-    g = sns.lineplot(x="ndate", y="AA100k7D-MikeInitial", data=df, color='blue', label="AA County Case Rate - Mike Initial")
+    #g = sns.lineplot(x="ndate", y="AA100k7D-MikeInitial", data=df, color='blue', label="AA County Case Rate - Mike Initial")
     g = sns.lineplot(x="ndate", y="AA100k7D-County_2019", data=df, color='green', label="AA County Case Rate - County")
     g = sns.lineplot(x="ndate", y="AA100k7D-2019Census", data=df, color='black', label="AA County Case Rate - 2019 Census")
     g = sns.lineplot(x="ndate", y="AA100k7D-2020Census", data=df, color='red', label="AA County Case Rate - 2020 Census")
