@@ -79,11 +79,11 @@ sevenDayAverage45day = cvd_case_rate_aggregate.iloc[-45:]
 sevenDayAverage30day = cvd_case_rate_aggregate.iloc[-30:]
 sevenDayAverage7day = cvd_case_rate_aggregate.iloc[-7:]
 
-plot_state_7davg(cvd_case_rate_aggregate, 'Case Count for Counties Aggregate 7-Day Running Average', size=4)
-plot_state_7davg(sevenDayAverage60day, 'Case Count for Counties previous 60 Days 7-Day Running Average', size=4)
-plot_state_7davg(sevenDayAverage45day, 'Case Count for Counties previous 45 Days 7-Day Running Average', size=4)
-plot_state_7davg(sevenDayAverage30day, 'Case Count for Counties previous 30 Days 7-Day Running Average', size=4)
-plot_state_7davg(sevenDayAverage7day, 'Case Count for Counties previous 7 Days 7-Day Running Average', size=4)
+plot_state_7davg(cvd_case_rate_aggregate, 'Anne Arundel Cases Aggregate 7-Day Running Average', size=4)
+plot_state_7davg(sevenDayAverage60day, 'Anne Arundel Casess previous 60 Days 7-Day Running Average', size=4)
+plot_state_7davg(sevenDayAverage45day, 'Anne Arundel Cases previous 45 Days 7-Day Running Average', size=4)
+plot_state_7davg(sevenDayAverage30day, 'Anne Arundel Cases previous 30 Days 7-Day Running Average', size=4)
+plot_state_7davg(sevenDayAverage7day, 'Anne Arundel Cases previous 7 Days 7-Day Running Average', size=4)
 
 
 # =================================================================================
