@@ -7,8 +7,8 @@ import datetime as dt
 from matplotlib import pyplot as plt
 import seaborn as sns
 
-#from warnings import simplefilter
-#simplefilter(action="ignore", category=pd.errors.PerformanceWarning)
+from warnings import simplefilter
+simplefilter(action="ignore", category=pd.errors.PerformanceWarning)
 
 # ===================================================================
 # County Populations from the State of the Maryland
@@ -776,3 +776,35 @@ plot_I95county_7D100kAvg(i95sevenday100kcvd_case_rate_aggregate, 'I-95 Region Ca
 plot_I95county_7D100kAvg(i95sevenday100ksevenDayAverage60day, 'I-95 Region Case Rate  Past 60 Days 7-Day Running Average', size=4)
 plot_I95county_7D100kAvg(i95sevenday100ksevenDayAverage30day, 'I-95 Region Case Rate  Past 30 Days 7-Day Running Average', size=4)
 plot_I95county_7D100kAvg(i95sevenday100ksevenDayAverage7day, 'I-95 Region Case Rate  Past 7 Days 7-Day Running Average', size=4)
+
+
+###REGIONAL####
+def plot_regional_7D100kAvg(df, title='Regional Zones Aggregate Case Rate', size=1):
+    f, ax = plt.subplots(1, 1, figsize=(4 * size, 2 * size))
+    g = sns.lineplot(x="ReportDate", y="Western7D100k", data=df, color='blue', label="Western Region")
+    g = sns.lineplot(x="ReportDate", y="Southern7D100k", data=df, color='salmon', label="Southern Region")
+    g = sns.lineplot(x="ReportDate", y="Central7D100k", data=df, color='crimson', label="Central Region")  
+    g = sns.lineplot(x="ReportDate", y="Capital7D100k", data=df, color='blueviolet', label="Capital Region")
+    g = sns.lineplot(x="ReportDate", y="Eastern7D100k", data=df, color='gray', label="Eastern Shore Region")
+    g = sns.lineplot(x="ReportDate", y="I957D100k", data=df, color='cyan', label="I-95 Corridor")
+    plt.legend(loc='upper left')
+
+
+    plt.xlabel('Date')
+    plt.ylabel('Cases per 100k')
+    plt.xticks(rotation=90)
+    plt.title(f' {title} ')
+    ax.grid(color='black', linestyle='dotted', linewidth=0.75)
+    plt.savefig(f'{title}.png')
+    plt.show()
+
+
+
+regionalsevenday100kcvd_case_rate_aggregate = county.groupby(['ReportDate']).sum().reset_index()
+regionalsevenday100ksevenDayAverage60day = regionalsevenday100kcvd_case_rate_aggregate.iloc[-60:]
+regionalsevenday100ksevenDayAverage30day = regionalsevenday100kcvd_case_rate_aggregate.iloc[-30:]
+regionalsevenday100ksevenDayAverage7day = regionalsevenday100kcvd_case_rate_aggregate.iloc[-7:]
+plot_regional_7D100kAvg(regionalsevenday100kcvd_case_rate_aggregate, 'Regional Aggregate 7-Day Running Average', size=4)
+plot_regional_7D100kAvg(regionalsevenday100ksevenDayAverage60day, 'Regional Case Rate  Past 60 Days 7-Day Running Average', size=4)
+plot_regional_7D100kAvg(regionalsevenday100ksevenDayAverage30day, 'Regional Case Rate  Past 30 Days 7-Day Running Average', size=4)
+plot_regional_7D100kAvg(regionalsevenday100ksevenDayAverage7day, 'Regional Case Rate  Past 7 Days 7-Day Running Average', size=4)
