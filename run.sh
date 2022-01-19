@@ -26,7 +26,7 @@ python3 scripts/state-hospitaliations.py
 python3 scripts/aacounty.py
 
 #Added 1/17/22
-python scripts/county2020.py
+python3 scripts/county2020.py
 
 /#Original File
 mv *.png data/$today
