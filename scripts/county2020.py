@@ -579,10 +579,10 @@ sevenday100kcvd_case_rate_aggregate = county.groupby(['ReportDate']).sum().reset
 sevenday100ksevenDayAverage60day = sevenday100kcvd_case_rate_aggregate.iloc[-60:]
 sevenday100ksevenDayAverage30day = sevenday100kcvd_case_rate_aggregate.iloc[-30:]
 sevenday100ksevenDayAverage7day = sevenday100kcvd_case_rate_aggregate.iloc[-7:]
-plot_county_7D100kAvg(sevenday100kcvd_case_rate_aggregate, 'County Case Rate Aggregate 7-Day Running Average', size=4)
-plot_county_7D100kAvg(sevenday100ksevenDayAverage60day, 'County Case Rate  Past 60 Days 7-Day Running Average', size=4)
-plot_county_7D100kAvg(sevenday100ksevenDayAverage30day, 'County Case Rate  Past 30 Days 7-Day Running Average', size=4)
-plot_county_7D100kAvg(sevenday100ksevenDayAverage7day, 'County Case Rate  Past 7 Days 7-Day Running Average', size=4)
+plot_county_7D100kAvg(sevenday100kcvd_case_rate_aggregate, '2020 County Case Rate Aggregate 7-Day Running Average', size=4)
+plot_county_7D100kAvg(sevenday100ksevenDayAverage60day, '2020 County Case Rate  Past 60 Days 7-Day Running Average', size=4)
+plot_county_7D100kAvg(sevenday100ksevenDayAverage30day, '2020 County Case Rate  Past 30 Days 7-Day Running Average', size=4)
+plot_county_7D100kAvg(sevenday100ksevenDayAverage7day, '2020 County Case Rate  Past 7 Days 7-Day Running Average', size=4)
 
 def plot_aacounty_7D100kAvg(df, title='Aggregate Anne Arundel County Case Rate', size=1):
     f, ax = plt.subplots(1, 1, figsize=(4 * size, 2 * size))
