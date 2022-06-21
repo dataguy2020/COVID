@@ -67,11 +67,6 @@ I95Population = BaltimorePopulation + BaltimoreCityPopulation + CecilPopulation 
 
 
 CVD = pd.read_csv('https://opendata.maryland.gov/api/views/mgd3-qk8t/rows.csv?accessType=DOWNLOAD')
-#CVD['ndate'] = CVD['DATE'] + '00'
-
-# Convert string value of date to datetime format
-#CVD['ndate'] = [dt.datetime.strptime(x, '%Y/%m/%d %H:%M:%S%z')
-#                for x in CVD['ndate']]
 
 #Creating new data frame 
 county = pd.DataFrame()
