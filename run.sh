@@ -28,7 +28,10 @@ python3 scripts/aacounty.py
 #Added 1/17/22
 python3 scripts/county2020.py
 
-/#Original File
+#Added 8/2/2022
+python3 scripts/upgradeCounty.py
+
+#Original File
 mv *.png data/$today
 mv *.csv data/$today
 git add *
