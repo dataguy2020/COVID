@@ -39,6 +39,18 @@ CVD = pd.read_csv('https://opendata.maryland.gov/api/views/mgd3-qk8t/rows.csv?ac
 #Creating new data frame 
 county = pd.DataFrame()
 county['ReportDate'] = CVD['ReportDate']
+
+#getting the date portion of the string
+county['ReportDate'] = county.ReportDate.str.slice(0,10)
+
+#converting string to date format
+county['ReportDate'] = [dt.datetime.strptime(x, '%m/%d/%Y')
+                for x in county['ReportDate']]
+
+#adding new column for data date vs reported date - data date is 1 day prior to report date
+county['DataDate'] = county['ReportDate'] - timedelta(days=1)
+
+
 county['Allegany'] = CVD['ALLE']
 county['AnneArundel'] = CVD['ANNE']
 county['Baltimore'] = CVD['BALT']
@@ -64,13 +76,17 @@ county['Washington'] = CVD['WASH']
 county['Wicomico'] = CVD['WICO']
 county['Worcester'] = CVD['WORC']
 
-
+#converting Report Date to string
 county['ReportDate'] = county['ReportDate'].astype('str')
+
+#getting the date portion of the string
 county['ReportDate'] = county.ReportDate.str.slice(0,10)
 
+#converting string to date format
 county['ReportDate'] = [dt.datetime.strptime(x, '%m/%d/%Y')
                 for x in county['ReportDate']]
 
+#adding new column for data date vs reported date - data date is 1 day prior to report date
 county['DataDate'] = county['ReportDate'] - timedelta(days=1)
 
 print (county.dtypes)
