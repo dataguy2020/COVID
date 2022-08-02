@@ -65,7 +65,6 @@ county['Wicomico'] = CVD['WICO']
 county['Worcester'] = CVD['WORC']
 
 
-#county['ReportDate'] = county['ReportDate'].str[2:]
 county['ReportDate'] = county['ReportDate'].astype('str')
 county['ReportDate'] = county.ReportDate.str.slice(0,10)
 
@@ -76,3 +75,4 @@ county['DataDate'] = county['ReportDate'] - timedelta(days=1)
 
 print (county.dtypes)
 print(county.tail())
+
