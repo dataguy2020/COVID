@@ -92,3 +92,4 @@ county['DataDate'] = county['ReportDate'] - timedelta(days=1)
 print (county.dtypes)
 print(county.tail())
 
+county.to_csv('CountyTest.csv')
