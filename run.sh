@@ -34,6 +34,16 @@ python3 scripts/upgradeCounty.py
 #Original File
 mv *.png data/$today
 mv *.csv data/$today
+
+dir1="data/County/$today"
+if [[ ! -e $dir ]]; then
+    mkdir $dir
+fi
+python3 scripts/County/cases.py
+python3 scripts/County/hospital.py
+mv *.png data/County/$today
+mv *.csv data/County/$today
+
 git add *
 git commit -m "`date +%m%d%Y` updates"
 git push COVID master
