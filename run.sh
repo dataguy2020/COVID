@@ -42,9 +42,9 @@ fi
 python3 scripts/County/cases.py
 python3 scripts/County/hospital.py
 echo "Moving PNG files to data dir"
-mv *.png data/County/$today
+mv *.png $dir1
 echo "Moving CSV files to data dir"
-mv *.csv data/County/$today
+mv *.csv $dir1
 
 git add *
 git commit -m "`date +%m%d%Y` updates"
