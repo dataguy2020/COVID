@@ -41,7 +41,9 @@ if [[ ! -e $dir ]]; then
 fi
 python3 scripts/County/cases.py
 python3 scripts/County/hospital.py
+echo "Moving PNG files to data dir"
 mv *.png data/County/$today
+echo "Moving CSV files to data dir"
 mv *.csv data/County/$today
 
 git add *
