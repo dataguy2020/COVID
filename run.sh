@@ -36,7 +36,7 @@ mv *.png data/$today
 mv *.csv data/$today
 
 dir1="data/County/$today"
-if [[ ! -e $dir ]]; then
+if [[ ! -e $dir1 ]]; then
     mkdir $dir1
 fi
 python3 scripts/County/cases.py
