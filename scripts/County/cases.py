@@ -108,6 +108,8 @@ AACounty['AA100k7D-Calc'] = AACounty['AADaily100kCalc'].rolling(window=7).mean()
 print(AACounty.dtypes)
 AACounty.to_csv('AnneArundel.csv')
 
+print(AACounty.tail())
+
 #=================================================================================
 # 7-Day Running Average - Daily Cases
 #=================================================================================
