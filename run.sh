@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #Original File
-cd /home/`whoami`/script
+cd /home/`whoami`/code/COVID
 today=`date +%m%d%Y`
 dir="data/$today"
 if [[ ! -e $dir ]]; then
