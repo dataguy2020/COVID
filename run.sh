@@ -48,4 +48,4 @@ mv *.csv $dir1
 
 git add *
 git commit -m "`date +%m%d%Y` updates"
-git push COVID master
+git push origin master
