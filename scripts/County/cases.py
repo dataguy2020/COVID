@@ -135,7 +135,9 @@ cvd_case_rate_aggregate = AACounty.groupby(['DataDate']).sum().reset_index()
 sevenDayAverage60day = cvd_case_rate_aggregate.iloc[-60:]
 sevenDayAverage30day = cvd_case_rate_aggregate.iloc[-30:]
 sevenDayAverage7day = cvd_case_rate_aggregate.iloc[-7:]
+print ("Priot to first plot")
 plot_county_7DAvg(cvd_case_rate_aggregate, 'County Aggregate 7-Day Running Average', size=4)
+print ("After first plot")
 plot_county_7DAvg(sevenDayAverage60day, 'County Past 60 Days 7-Day Running Average', size=4)
 plot_county_7DAvg(sevenDayAverage30day, 'County Past 30 Days 7-Day Running Average', size=4)
 plot_county_7DAvg(sevenDayAverage7day, 'County Past 7 Days 7-Day Running Average', size=4)
