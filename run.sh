@@ -1,4 +1,5 @@
 #!/bin/bash
+export GPG_TTY=$(tty)
 
 #Original File
 cd /data//code/COVID
